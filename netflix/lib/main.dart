@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.dark,
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
-      home: const DashBoard(),
+      home: DashBoard(),
     );
   }
 }

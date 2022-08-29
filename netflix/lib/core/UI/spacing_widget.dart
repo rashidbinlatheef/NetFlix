@@ -1,4 +1,10 @@
 class Spacing {
+  /// Large spacing 40 pts
+  static double extraExtralarge = 40;
+
+  /// Large spacing 32 pts
+  static double extraLarge = 32;
+
   /// Large spacing 24 pts
   static double large = 24;
 
