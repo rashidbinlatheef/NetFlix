@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/design_system/app_theme.dart';
 import 'package:netflix/core/UI/bottom_navigation_widget.dart';
 import 'package:netflix/presentation/downloads/downloads_screen.dart';
 import 'package:netflix/presentation/fast_laugh/fast_laugh_screen.dart';

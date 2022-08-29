@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/core/design_system/app_theme.dart';
 import 'package:netflix/core/notifiers/value_notifiers.dart';
 
 class BottomNavigationWidget extends StatelessWidget {
