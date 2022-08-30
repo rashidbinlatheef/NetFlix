@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
-ValueNotifier<int> bottomNavigationIndexNotifier = ValueNotifier(0);
+ValueNotifier<int> bottomNavigationIndexNotifier = ValueNotifier(3);
