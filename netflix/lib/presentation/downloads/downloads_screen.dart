@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/UI/app_navigation_bar.dart';
+import 'package:netflix/core/design_system/button_theme.dart';
+import 'package:netflix/core/design_system/theme_data_extension.dart';
 import 'package:netflix/presentation/downloads/downloads_image_tiles.dart';
-
-import '../../core/UI/Buttons/Buttons.dart';
 import '../../core/UI/spacing_widget.dart';
 
 class DownloadsScreen extends StatelessWidget {
@@ -107,33 +107,25 @@ class DownloadsScreen extends StatelessWidget {
   }
 
   List<Widget> _createButtons(BuildContext context) {
+    AppButtonStyle primaryButtonStyle =
+        Theme.of(context).appButtonTheme.primary;
+    AppButtonStyle secondaryButtonStyle =
+        Theme.of(context).appButtonTheme.secondary;
     return [
       MaterialButton(
-        color: AppButtonTheme.buttonColor(
-          type: AppButtonType.primary,
-          context: context,
-        ),
+        color: primaryButtonStyle.color,
         onPressed: () {},
         child: Text(
           "Set up",
-          style: AppButtonTheme.textStyle(
-            type: AppButtonType.primary,
-            context: context,
-          ),
+          style: primaryButtonStyle.style,
         ),
       ),
       MaterialButton(
-        color: AppButtonTheme.buttonColor(
-          type: AppButtonType.secondary,
-          context: context,
-        ),
+        color: secondaryButtonStyle.color,
         onPressed: () {},
         child: Text(
           "See what you can download",
-          style: AppButtonTheme.textStyle(
-            type: AppButtonType.secondary,
-            context: context,
-          ),
+          style: secondaryButtonStyle.style,
         ),
       ),
     ];

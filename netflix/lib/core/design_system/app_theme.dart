@@ -1,28 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/core/design_system/button_theme.dart';
+import 'package:netflix/core/design_system/search_bar_theme.dart';
 
 class AppTheme {
   static ThemeData light = ThemeData(
-    scaffoldBackgroundColor: Colors.white,
-    backgroundColor: Colors.white,
-    appBarTheme: _lightAppBarTheme,
-    bottomNavigationBarTheme: _lightBottomBarTheme,
-    textTheme: _lightTextTheme,
-    buttonTheme: ButtonThemeData(
-      colorScheme: _buttonColorSchemeLight,
-    ),
-  );
+      scaffoldBackgroundColor: Colors.white,
+      backgroundColor: Colors.white,
+      appBarTheme: _lightAppBarTheme,
+      bottomNavigationBarTheme: _lightBottomBarTheme,
+      textTheme: _lightTextTheme,
+      extensions: <ThemeExtension<dynamic>>[
+        _lightSearchBarTheme,
+        _lightButtonTheme,
+      ]);
 
   static ThemeData dark = ThemeData(
-      scaffoldBackgroundColor: Colors.black,
-      backgroundColor: Colors.black,
-      appBarTheme: _darkAppBarTheme,
-      bottomNavigationBarTheme: _darkBottomBarTheme,
-      textTheme: _darkTextTheme,
-      buttonTheme: ButtonThemeData(
-        colorScheme: _buttonColorSchemeDark,
-      ));
+    scaffoldBackgroundColor: Colors.black,
+    backgroundColor: Colors.black,
+    appBarTheme: _darkAppBarTheme,
+    bottomNavigationBarTheme: _darkBottomBarTheme,
+    textTheme: _darkTextTheme,
+    extensions: <ThemeExtension<dynamic>>[
+      _darkSearchBarTheme,
+      _darkButtonTheme,
+    ],
+  );
 }
 
+/// Bottom Navigation Bar Themes
 BottomNavigationBarThemeData _lightBottomBarTheme =
     const BottomNavigationBarThemeData(
   backgroundColor: Colors.white,
@@ -41,6 +46,7 @@ BottomNavigationBarThemeData _darkBottomBarTheme =
   unselectedIconTheme: IconThemeData(color: Colors.grey),
 );
 
+// App Bar Themes
 AppBarTheme _darkAppBarTheme = const AppBarTheme(
   iconTheme: IconThemeData(
     color: Colors.white,
@@ -96,16 +102,50 @@ TextTheme _lightTextTheme = const TextTheme(
   ),
 );
 
-ColorScheme _buttonColorSchemeDark = const ColorScheme.dark(
-  primary: Colors.blue,
-  onPrimary: Colors.white,
-  secondary: Colors.white,
-  onSecondary: Colors.black,
+// App Button Themes
+AppButtonTheme _darkButtonTheme = AppButtonTheme(
+  primary: AppButtonStyle(
+    color: Colors.blue,
+    style: _darkTextTheme.titleMedium?.copyWith(
+      color: Colors.white,
+    ),
+  ),
+  secondary: AppButtonStyle(
+    color: Colors.white,
+    style: _darkTextTheme.titleMedium?.copyWith(
+      color: Colors.black,
+    ),
+  ),
 );
 
-ColorScheme _buttonColorSchemeLight = const ColorScheme.light(
-  primary: Colors.blue,
-  onPrimary: Colors.white,
-  secondary: Colors.white,
-  onSecondary: Colors.black,
+AppButtonTheme _lightButtonTheme = AppButtonTheme(
+  primary: AppButtonStyle(
+    color: Colors.blue,
+    style: _darkTextTheme.titleMedium?.copyWith(
+      color: Colors.white,
+    ),
+  ),
+  secondary: AppButtonStyle(
+    color: Colors.grey,
+    style: _darkTextTheme.titleMedium?.copyWith(
+      color: Colors.black,
+    ),
+  ),
+);
+
+// SearchBar Themes
+SearchBarTheme _darkSearchBarTheme = SearchBarTheme(
+  primary: SearchBarStyle(
+    style: _darkTextTheme.bodyMedium?.copyWith(color: Colors.red),
+    backgroundColor: Colors.yellow.withOpacity(0.4),
+    itemColor: Colors.red,
+  ),
+);
+
+SearchBarTheme _lightSearchBarTheme = SearchBarTheme(
+  primary: SearchBarStyle(
+    style: _darkTextTheme.bodyMedium?.copyWith(color: Colors.red),
+    backgroundColor: Colors.yellow.withOpacity(0.4),
+    itemColor: Colors.red,
+  ),
 );
