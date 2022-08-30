@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/UI/spacing_widget.dart';
 import 'package:netflix/core/design_system/theme_data_extension.dart';
+import 'package:netflix/presentation/search/search_list_widget.dart';
 
 import '../../core/design_system/search_bar_theme.dart';
 
@@ -29,7 +30,11 @@ class SearchScreen extends StatelessWidget {
               'Top Searches',
               style: Theme.of(context).textTheme.titleLarge,
               textAlign: TextAlign.left,
-            )
+            ),
+            SizedBox(
+              height: Spacing.small,
+            ),
+            const SearchListWidget()
           ],
         ),
       ),
