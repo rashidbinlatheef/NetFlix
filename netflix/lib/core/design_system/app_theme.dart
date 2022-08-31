@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/design_system/button_theme.dart';
+import 'package:netflix/core/design_system/colors.dart';
 import 'package:netflix/core/design_system/search_bar_theme.dart';
 
 class AppTheme {
   static ThemeData light = ThemeData(
-      scaffoldBackgroundColor: Colors.white,
-      backgroundColor: Colors.white,
+      scaffoldBackgroundColor: _lightColors.backgroundPrimary,
+      backgroundColor: _lightColors.backgroundPrimary,
       appBarTheme: _lightAppBarTheme,
       bottomNavigationBarTheme: _lightBottomBarTheme,
       textTheme: _lightTextTheme,
@@ -15,8 +16,8 @@ class AppTheme {
       ]);
 
   static ThemeData dark = ThemeData(
-    scaffoldBackgroundColor: Colors.black,
-    backgroundColor: Colors.black,
+    scaffoldBackgroundColor: _darkColors.backgroundPrimary,
+    backgroundColor: _darkColors.backgroundPrimary,
     appBarTheme: _darkAppBarTheme,
     bottomNavigationBarTheme: _darkBottomBarTheme,
     textTheme: _darkTextTheme,
@@ -27,108 +28,111 @@ class AppTheme {
   );
 }
 
+// App Colors
+final AppColors _lightColors = AppColors.light;
+final AppColors _darkColors = AppColors.dark;
+
 /// Bottom Navigation Bar Themes
 BottomNavigationBarThemeData _lightBottomBarTheme =
-    const BottomNavigationBarThemeData(
-  backgroundColor: Colors.white,
-  selectedItemColor: Colors.black,
-  unselectedItemColor: Colors.grey,
-  selectedIconTheme: IconThemeData(color: Colors.black),
-  unselectedIconTheme: IconThemeData(color: Colors.grey),
+    BottomNavigationBarThemeData(
+  backgroundColor: _lightColors.backgroundPrimary,
+  selectedItemColor: _lightColors.contentPrimary,
+  unselectedItemColor: _lightColors.contentPrimaryLight,
+  selectedIconTheme: IconThemeData(color: _lightColors.contentPrimary),
+  unselectedIconTheme: IconThemeData(color: _lightColors.contentPrimaryLight),
 );
 
-BottomNavigationBarThemeData _darkBottomBarTheme =
-    const BottomNavigationBarThemeData(
-  backgroundColor: Colors.black,
-  selectedItemColor: Colors.white,
-  unselectedItemColor: Colors.grey,
-  selectedIconTheme: IconThemeData(color: Colors.white),
-  unselectedIconTheme: IconThemeData(color: Colors.grey),
+BottomNavigationBarThemeData _darkBottomBarTheme = BottomNavigationBarThemeData(
+  backgroundColor: _darkColors.backgroundPrimary,
+  selectedItemColor: _darkColors.contentPrimary,
+  unselectedItemColor: _darkColors.contentPrimaryLight,
+  selectedIconTheme: IconThemeData(color: _darkColors.contentPrimary),
+  unselectedIconTheme: IconThemeData(color: _darkColors.contentPrimaryLight),
 );
 
 // App Bar Themes
-AppBarTheme _darkAppBarTheme = const AppBarTheme(
+AppBarTheme _darkAppBarTheme = AppBarTheme(
   iconTheme: IconThemeData(
-    color: Colors.white,
+    color: _darkColors.contentPrimary,
   ),
 );
 
-AppBarTheme _lightAppBarTheme = const AppBarTheme(
+AppBarTheme _lightAppBarTheme = AppBarTheme(
   iconTheme: IconThemeData(
-    color: Colors.black,
+    color: _lightColors.contentPrimary,
   ),
 );
 
 // Text Themes
-TextTheme _darkTextTheme = const TextTheme(
+TextTheme _darkTextTheme = TextTheme(
   titleLarge: TextStyle(
     fontStyle: FontStyle.normal,
     fontSize: 20,
     fontWeight: FontWeight.bold,
-    color: Colors.white,
+    color: _darkColors.contentPrimary,
   ),
   titleMedium: TextStyle(
     fontStyle: FontStyle.normal,
     fontSize: 16,
     fontWeight: FontWeight.w600,
-    color: Colors.white,
+    color: _darkColors.contentPrimary,
   ),
   bodyMedium: TextStyle(
     fontStyle: FontStyle.normal,
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: Colors.grey,
+    color: _darkColors.contentPrimary,
   ),
 );
 
-TextTheme _lightTextTheme = const TextTheme(
+TextTheme _lightTextTheme = TextTheme(
   titleLarge: TextStyle(
     fontStyle: FontStyle.normal,
     fontSize: 20,
     fontWeight: FontWeight.bold,
-    color: Colors.black,
+    color: _lightColors.contentPrimary,
   ),
   titleMedium: TextStyle(
     fontStyle: FontStyle.normal,
     fontSize: 16,
     fontWeight: FontWeight.w600,
-    color: Colors.black,
+    color: _lightColors.contentPrimary,
   ),
   bodyMedium: TextStyle(
     fontStyle: FontStyle.normal,
     fontSize: 16,
     fontWeight: FontWeight.w500,
-    color: Colors.grey,
+    color: _lightColors.contentPrimary,
   ),
 );
 
 // App Button Themes
 AppButtonTheme _darkButtonTheme = AppButtonTheme(
   primary: AppButtonStyle(
-    color: Colors.blue,
+    color: _darkColors.backgroundAccent,
     style: _darkTextTheme.titleMedium?.copyWith(
-      color: Colors.white,
+      color: _darkColors.contentPrimary,
     ),
   ),
   secondary: AppButtonStyle(
-    color: Colors.white,
+    color: _darkColors.backgroundInversePrimary,
     style: _darkTextTheme.titleMedium?.copyWith(
-      color: Colors.black,
+      color: _darkColors.contentInversePrimary,
     ),
   ),
 );
 
 AppButtonTheme _lightButtonTheme = AppButtonTheme(
   primary: AppButtonStyle(
-    color: Colors.blue,
-    style: _darkTextTheme.titleMedium?.copyWith(
-      color: Colors.white,
+    color: _lightColors.backgroundAccent,
+    style: _lightTextTheme.titleMedium?.copyWith(
+      color: _lightColors.contentPrimary,
     ),
   ),
   secondary: AppButtonStyle(
-    color: Colors.grey,
+    color: _lightColors.backgroundInversePrimary,
     style: _darkTextTheme.titleMedium?.copyWith(
-      color: Colors.black,
+      color: _lightColors.contentInversePrimary,
     ),
   ),
 );
@@ -136,16 +140,20 @@ AppButtonTheme _lightButtonTheme = AppButtonTheme(
 // SearchBar Themes
 SearchBarTheme _darkSearchBarTheme = SearchBarTheme(
   primary: SearchBarStyle(
-    style: _darkTextTheme.bodyMedium?.copyWith(color: Colors.red),
-    backgroundColor: Colors.yellow.withOpacity(0.4),
-    itemColor: Colors.red,
+    style: _darkTextTheme.bodyMedium?.copyWith(
+      color: _darkColors.contentPrimaryLight,
+    ),
+    backgroundColor: _darkColors.backgroundSecondary.withOpacity(0.4),
+    itemColor: _darkColors.contentPrimaryLight,
   ),
 );
 
 SearchBarTheme _lightSearchBarTheme = SearchBarTheme(
   primary: SearchBarStyle(
-    style: _darkTextTheme.bodyMedium?.copyWith(color: Colors.red),
-    backgroundColor: Colors.yellow.withOpacity(0.4),
-    itemColor: Colors.red,
+    style: _darkTextTheme.bodyMedium?.copyWith(
+      color: _lightColors.contentPrimaryLight,
+    ),
+    backgroundColor: _lightColors.backgroundSecondary.withOpacity(0.4),
+    itemColor: _lightColors.contentPrimaryLight,
   ),
 );
