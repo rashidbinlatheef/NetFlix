@@ -2,24 +2,35 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/UI/spacing_widget.dart';
 
+import '../../core/UI/text_labels.dart';
+
 class SearchListWidget extends StatelessWidget {
   const SearchListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        shrinkWrap: true,
-        itemBuilder: (listViewContext, index) => const SearchListItemTile(
-          url:
-              "https://m.media-amazon.com/images/M/MV5BMDdmYjc3Y2EtM2FjYS00NGI2LTliZjgtYmQxMzJiMmUxNmI4XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_QL75_UX280_CR0,0,280,414_.jpg",
-          movieName: "Movie Name",
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Header('Top Searches'),
+        SizedBox(
+          height: Spacing.small,
         ),
-        separatorBuilder: (separatorContext, index) => SizedBox(
-          height: Spacing.extraSmall,
+        Expanded(
+          child: ListView.separated(
+            shrinkWrap: false,
+            itemBuilder: (listViewContext, index) => const SearchListItemTile(
+              url:
+                  "https://m.media-amazon.com/images/M/MV5BMDdmYjc3Y2EtM2FjYS00NGI2LTliZjgtYmQxMzJiMmUxNmI4XkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_QL75_UX280_CR0,0,280,414_.jpg",
+              movieName: "Movie Name",
+            ),
+            separatorBuilder: (separatorContext, index) => SizedBox(
+              height: Spacing.extraSmall,
+            ),
+            itemCount: 10,
+          ),
         ),
-        itemCount: 10,
-      ),
+      ],
     );
   }
 }
@@ -52,7 +63,7 @@ class SearchListItemTile extends StatelessWidget {
         SizedBox(
           width: Spacing.extraSmall,
         ),
-        Text(movieName),
+        BodyMedium(movieName),
         const Spacer(),
         const CircleAvatar(
             radius: imageHeight / 3.5,
