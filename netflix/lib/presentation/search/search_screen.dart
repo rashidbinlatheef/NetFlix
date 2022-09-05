@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:netflix/presentation/search/search_list_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:netflix/core/UI/spacing_widget.dart';
 import 'package:netflix/presentation/search/search_result.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:netflix/core/UI/spacing_widget.dart';
 
-import '../../core/UI/text_labels.dart';
+import '../../core/UI/text_widget.dart';
 
 class SearchListWidget extends StatelessWidget {
   const SearchListWidget({Key? key}) : super(key: key);
@@ -12,7 +12,10 @@ class SearchListWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Header('Top Searches'),
+        const TextWidget(
+          'Top Searches',
+          size: TextSize.heading,
+        ),
         SizedBox(
           height: Spacing.small,
         ),
@@ -63,7 +66,10 @@ class SearchListItemTile extends StatelessWidget {
         SizedBox(
           width: Spacing.extraSmall,
         ),
-        BodyMedium(movieName),
+        TextWidget(
+          movieName,
+          size: TextSize.heading,
+        ),
         const Spacer(),
         const CircleAvatar(
             radius: imageHeight / 3.5,

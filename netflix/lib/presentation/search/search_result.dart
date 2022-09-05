@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/core/UI/spacing_widget.dart';
 
-import '../../core/UI/text_labels.dart';
+import '../../core/UI/text_widget.dart';
 
 class SearchResult extends StatelessWidget {
   const SearchResult({Key? key}) : super(key: key);
@@ -11,7 +11,10 @@ class SearchResult extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Header('Top Searches'),
+        const TextWidget(
+          'Top Searches',
+          size: TextSize.heading,
+        ),
         SizedBox(
           height: Spacing.small,
         ),

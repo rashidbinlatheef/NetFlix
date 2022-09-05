@@ -4,7 +4,7 @@ import 'package:netflix/core/design_system/button_theme.dart';
 import 'package:netflix/core/design_system/theme_data_extension.dart';
 import 'package:netflix/presentation/downloads/downloads_image_tiles.dart';
 import '../../core/UI/spacing_widget.dart';
-import '../../core/UI/text_labels.dart';
+import '../../core/UI/text_widget.dart';
 
 class DownloadsScreen extends StatelessWidget {
   const DownloadsScreen({Key? key}) : super(key: key);
@@ -40,21 +40,24 @@ class DownloadsScreen extends StatelessWidget {
             color: AppBarTheme.of(context).iconTheme?.color,
           ),
           SizedBox(width: Spacing.extraSmall),
-          const HeaderMedium(
+          const TextWidget(
             'Smart Downloads',
+            size: TextSize.heading,
           ),
         ],
       ),
       SizedBox(height: Spacing.large),
       const Center(
-        child: Header(
+        child: TextWidget(
           'Introducing Downloads for you',
+          size: TextSize.heading,
         ),
       ),
       SizedBox(height: Spacing.small),
       const Center(
-        child: BodyMedium(
+        child: TextWidget(
           "We'll download personailsed selection of movies and shows for you, so there's always something to watch on your device.",
+          size: TextSize.body,
         ),
       ),
     ];

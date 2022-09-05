@@ -10,6 +10,7 @@ class AppTheme {
       appBarTheme: _lightAppBarTheme,
       bottomNavigationBarTheme: _lightBottomBarTheme,
       textTheme: _lightTextTheme,
+      iconTheme: _lightIconThemeData,
       extensions: <ThemeExtension<dynamic>>[
         _lightSearchBarTheme,
         _lightButtonTheme,
@@ -21,6 +22,7 @@ class AppTheme {
     appBarTheme: _darkAppBarTheme,
     bottomNavigationBarTheme: _darkBottomBarTheme,
     textTheme: _darkTextTheme,
+    iconTheme: _darkIconThemeData,
     extensions: <ThemeExtension<dynamic>>[
       _darkSearchBarTheme,
       _darkButtonTheme,
@@ -156,4 +158,13 @@ SearchBarTheme _lightSearchBarTheme = SearchBarTheme(
     backgroundColor: _lightColors.backgroundSecondary.withOpacity(0.4),
     itemColor: _lightColors.contentPrimaryLight,
   ),
+);
+
+// Icon Theme
+IconThemeData _darkIconThemeData = IconThemeData(
+  color: _darkColors.contentPrimary,
+);
+
+IconThemeData _lightIconThemeData = IconThemeData(
+  color: _lightColors.contentPrimary,
 );
